@@ -10,18 +10,39 @@
 <body>
     <div class="page">
         <div class="header">
-            <div class="name">浙江重庆云阳商会</div>
-            <div class="nav" onclick="change()">菜单</div>
-            <div class="jump">
-                <div class="jump-child">商会介绍</div>
-                <div class="jump-child" onclick="window.location.href='./constitution.html'">商会章程</div>
-                <div class="jump-child">商会架构</div>
-                <div class="jump-child">商会制度</div>
-                <div class="jump-child">会长致辞</div>
-                <div class="jump-child">商会荣誉</div>
+            <div class="header-child">
+                <div class="name">浙江重庆云阳商会</div>
+                <div class="ename">Zhejiang Chongqing Yunyang chamber of Commerce</div>
+                <div class="tag">万里长江</div>
+                <div class="tag2">天生<span class="red">云阳</span></div>
             </div>
         </div>
-        <div class="subject" onclick="body_change()">
+        <div class="jump">
+            <div class="jump-child jump-child-hover">
+                商会介绍
+                <div class="jump-child-child"></div>
+            </div>
+            <div class="jump-child" onclick="window.location.href='./constitution.html'">
+                商会章程
+                <div class="jump-child-child"></div>
+            </div>
+            <div class="jump-child">
+                商会架构
+                <div class="jump-child-child"></div>
+            </div>
+            <div class="jump-child">
+                商会制度
+                <div class="jump-child-child"></div>
+            </div>
+            <div class="jump-child">
+                会长致辞
+                <div class="jump-child-child"></div>
+            </div>
+            <div class="jump-child jump-child-last">
+                商会荣誉
+            </div>
+        </div>
+        <div class="subject">
             <div class="words">
                 <div class="title">浙江省重庆云阳商会</div>
                 <div class="word">
@@ -70,17 +91,7 @@
 </body>
 
 <script>
-    let show = false;
-    let change = () => {
-        show = !show;
-        show ? $('.jump-child').show() : $('.jump-child').hide();
-    }
-    let body_change = () => {
-        if(innerWidth < 500){
-            show = false;
-            $('.jump-child').hide()
-        }
-    }
+    
 </script>
 
 <style lang="scss">
@@ -92,50 +103,102 @@
     .page {
         width: 100%;
         height: auto;
+        background-color: #eeeeee
     }
 
     .header {
         width: 100%;
-        height: 50px;
-        position: fixed;
-        top: 0;
-        background-color: white;
-        border-bottom: 1px solid lightgrey;
-        box-shadow: 0 2px 20px 0 #999999;
-        display: flex;
-        justify-content: space-between;
+        height: 400px;
+        position: relative;
+        background-image: url("./../img/1.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position-y: -500px;
+    }
+
+    .header-child {
+        padding-top: 30px;
     }
 
     .name {
-        height: 50px;
-        text-align: center;
+        height: 40px;
         font-size: 27px;
-        line-height: 50px;
-        padding: 0 40px;
+        line-height: 40px;
         box-sizing: border-box;
+        color: #fff;
+        margin-left: 40px;
     }
 
-    .nav {
-        display: none;
+    .ename {
+        height: 30px;
+        font-size: 20px;
+        line-height: 30px;
+        box-sizing: border-box;
+        color: #fff;
+        margin-left: 40px;
+    }
+
+    .red {
+        color: red;
     }
 
     .jump {
-        float: right;
-        height: 50px;
-        margin-right: 40px;
+        height: 80px;
         display: flex;
-        justify-content: end;
+        background-color: red;
+        border-radius: 35px;
+        box-shadow: 0px 13px 0px rgba(255, 0, 0, 0.2);
+        transform: translateY(-40px);
+        position: sticky;
+        top: 40px;
     }
 
     .jump-child {
-        width: 150px;
+        width: 18%;
         text-align: center;
-        font-size: 22px;
-        line-height: 50px;
+        font-size: 26px;
+        line-height: 80px;
+        color: #fff;
+        word-wrap: break-word;
+    }
+
+    .jump-child-child {
+        background: red;
+        width: 35px;
+        height: 80px;
+        border-radius: 35px 0 0 35px;
+        float: right;
+    }
+
+    .jump-child-hover {
+        background-color: #fff;
+        color: #000;
+        border-radius: 35px 0 0 35px;
     }
 
     .jump-child:hover {
-        box-shadow: 0 2px 10px 0 #999999 inset;
+        /* box-shadow: 0 2px 10px 0 #999999 inset; */
+        background-color: #fff;
+        color: #000;
+        border-radius: 35px 0 0 35px;
+    }
+
+    .jump-child-last:hover {
+        border-radius: 35px;
+    }
+
+    .tag {
+        font-size: 40px;
+        color: #fff;
+        font-family: '宋体';
+        padding-left: 70%;
+    }
+
+    .tag2 {
+        font-size: 40px;
+        color: #fff;
+        font-family: '宋体';
+        padding-left: 75.5%;
     }
 
     .subject {
@@ -176,37 +239,83 @@
     }
 
     @media only screen and (max-width: 500px) and (min-width: 300px) {
-        .name {
-            font-size: 20px;
+        .header {
+            background-image: url("./../img/1.jpg");
+            height: 200px;
+            background-repeat: none;
+            background-position-y: 0px;
         }
 
-        .nav {
-            display: inline;
-            line-height: 30px;
-            font-size: 14px;
-            margin: 10px 10px;
-            padding: 0 10px;
-            box-sizing: border-box;
-            /* border: 1px solid #aa55aa; */
-            background-color: #eeeeee;
-            box-shadow: 0 0 5px 2px #bbbbbb;
-            border-radius: 5px;
+        .header-child {
+            padding-top: 5px;
         }
+
+        .name {
+            font-size: 18px;
+            margin-left: 10px;
+            line-height: 20px;
+            height: 20px;
+        }
+
+        .ename {
+            font-size: 12px;
+            margin-left: 10px;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .tag {
+            display: none;
+        }
+
+        .tag2 {
+            display: none;
+        }
+
 
         .jump {
-            height: unset;
-            position: absolute;
-            top: 50px;
-            right: 5px;
-            display: inline;
-            background-color: #ffffff;
-            z-index: 10;
-            margin: 0;
+            height: 40px;
+            display: flex;
+            background-color: red;
+            border-radius: 10px;
+            box-shadow: 0px 5px 0px rgba(255, 0, 0, 0.2);
+            transform: translateY(-20px);
+            position: sticky;
+            top: 20px;
         }
 
         .jump-child {
+            width: 18%;
+            text-align: center;
+            font-size: 15px;
+            line-height: 40px;
+            color: #fff;
+        }
+
+        .jump-child-child {
+            background: red;
+            width: 10px;
+            height: 40px;
+            border-radius: 10px 10px 10px 10px;
+            float: right;
             display: none;
-            border: 1px solid #88888825;
+        }  
+        
+        .jump-child-hover {
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .jump-child:hover {
+            /* box-shadow: 0 2px 10px 0 #999999 inset; */
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .jump-child-last:hover {
+            border-radius: 10px;
         }
 
         .words {
